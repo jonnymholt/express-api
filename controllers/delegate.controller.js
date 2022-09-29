@@ -6,13 +6,23 @@ const postDelegateValidator = [
     body('delegateType').isInt().toInt(),
     body('createdAt').isISO8601()
 ];
-const postDelegate = (req, res, next) => {
+const postDelegate = async (req, res, next) => {
+
+    const err =  new Error('Record not found');
+
+    throw err;
     return res.json(req.body);
+}
+
+const getDelegates = async (req, res, next) => {
+    const delegate = [];
+    return res.json(delegate);
 }
 
 module.exports = {
     validators: {
         postDelegateValidator
     },
-    postDelegate
+    postDelegate,
+    getDelegates
 }

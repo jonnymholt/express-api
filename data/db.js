@@ -12,3 +12,8 @@ const poolPromise = new sql.ConnectionPool(connectionString)
     console.log('Database Connection Failed! Bad Config: ', err);
     throw err;
   });
+
+  module.exports = {
+    poolPromise,
+    sql
+  }
